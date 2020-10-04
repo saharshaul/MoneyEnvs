@@ -1,25 +1,39 @@
 import random
 
 
-class Automatic_BaseStrategy(BaseStategy):
-  def perform_startegy(self, counter):
-      rnd = random.randint(100)
-      return envelopes[rnd]
+class BaseStrategy:
+    def __init__(self, envs):
+        self.envelopes = envs
+
+    def play(self):
+        self.perform_strategy()
+
+    def perform_strategy(self):
+        pass
 
 
-class N_max_srategy(BaseStategy):
-  def __init__(self, n):
-    self.n = n
+class Automatic_BaseStrategy(BaseStrategy):
+    def __init__(self, envs):
+        super(self, envs)
 
-  def perform_startegy(self, counter):
-      pass
+    def perform_startegy(self, counter):
+        rnd = random.randint(0, 99)
+        return envelopes[rnd]
 
 
-class More_then_N_percent_group_srategy(BaseStategy):
-    def __init__(self, percent):
-        self.percent = percent
+class N_max_srategy(BaseStrategy):
+    def __init__(self, envs, n):
+        super(self, envs)
+        self.n = n
 
     def perform_startegy(self, counter):
         pass
 
 
+class More_then_N_percent_group_srategy(BaseStrategy):
+    def __init__(self, envs, p):
+        super(self, envs)
+        self.percent = p
+
+    def perform_startegy(self, counter):
+        pass
