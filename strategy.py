@@ -51,13 +51,13 @@ class More_then_N_percent_group_strategy(BaseStrategy):
 class N_max_srategy(BaseStrategy):
     def __init__(self, envs, n):
         super(self, envs)
-        self.n = n
+        self.N = n
 
     def perform_startegy(self, counter):
         count = 1
         max = 0
         i = 0
-        while count < self.n:
+        while count < self.N:
             if self.envelopes[i].money > max:
                 max = self.envelopes[i].money
                 count += 1
