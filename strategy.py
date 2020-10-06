@@ -1,5 +1,5 @@
 from abc import ABC
-class Base_Strategy(ABC):
+class BaseStrategy(ABC):
 
 	def __init__(self, envs):
 		self.envelopes = envs
@@ -11,7 +11,7 @@ class Base_Strategy(ABC):
 		pass
 
 
-class Automatic_Base_Strategy(BaseStrategy):
+class Automatic_BaseStrategy(BaseStrategy):
     def __init__(self, envs):
         super(self, envs)
 
@@ -20,7 +20,7 @@ class Automatic_Base_Strategy(BaseStrategy):
         return self.envelopes[rnd]
 
 
-class Automatic_Base_Strategy(BaseStrategy):
+class Automatic_BaseStrategy(BaseStrategy):
     def __init__(self, n):
         super(self,n)
 
@@ -40,7 +40,7 @@ class Automatic_Base_Strategy(BaseStrategy):
         return(temp)
 
 
-class More_then_N_percent_group_strategy(BaseStrategy):
+class More_then_N_percent_group_strategy:
 
 	def __init__(self, envs, p):
 		super(self, envs)
@@ -67,8 +67,8 @@ class N_max_srategy(BaseStrategy):
         max = 0
         i = 0
         while count < self.n:
-            if self.envelopes[i] > max:
-                max = self.envelopes[i]
+            if self.envelopes[i].money > max:
+                max = self.envelopes[i].money
                 count += 1
             i += 1
         return self.envelopes[i]
